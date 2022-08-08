@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Title</title>
+    <style>
+          .addBtn{
+              background: aquamarine;
+              border: none;
+              width: 30px;
+              height: 30px;
+              border-radius: 4px;
+          }
+          .minusBtn{
+              background: aquamarine;
+              border: none;
+              width: 30px;
+              height: 30px;
+              border-radius: 4px;
+          }
+    </style>
+    <script src="jsCase/dinks.js"></script>
+    <link rel="stylesheet" href="cssCase/drink.css">
+</head>
+<body style="margin: 0;padding-top: 20px;  background: cornsilk;">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="main-box clearfix">
+                <div class="table-responsive">
+                    <div style="display: flex;justify-content: end;padding-right: 60px;margin-bottom: 20px; background: aquamarine;padding-top: 12px;
+                    padding-bottom: 12px;border-radius: 7px;">
+                        <a href="index.html" onclick="localSelect()">
+                            <button type="button" class="btn btn-primary">Home</button>
+                        </a>
+                        <a href="#addEmployeeModal" onclick="pay()" className="edit" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Edit">
+                            <button type="button" class="btn btn-success">Thanh toán</button>
+                        </i></a>
+                    </div>
+                    <table class="table user-list">
+                        <thead>
+                        <tr>
+                            <th style="background: aliceblue"><span>Tên</span></th>
+                            <th class="text-center" style="background: antiquewhite"><span >Gía</span></th>
+                            <th class="text-center" style="background: aqua"><span >Số lượng</span></th>
+                            <th class="text-center" style="background: chartreuse"><span>Tình trạng</span></th>
+                            <th class="text-center" style="background: coral">
+                                <span class="text-center">Lựa chọn</span>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody id="bodyListDrink">
+
+                        </tbody>
+                    </table>
+                </div>
+                <!--                <ul class="pagination pull-right">-->
+<!--                    <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>-->
+<!--                    <li><a href="#">1</a></li>-->
+<!--                    <li><a href="#">2</a></li>-->
+<!--                    <li><a href="#">3</a></li>-->
+<!--                    <li><a href="#">4</a></li>-->
+<!--                    <li><a href="#">5</a></li>-->
+<!--                    <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>-->
+<!--                </ul>-->
+            </div>
+        </div>
+    </div>
+</div>
+<div id="addEmployeeModal" class="modal fade" >
+    <div class="modal-dialog">
+        <div class="modal-content" style="min-width: 400px !important;margin: 0">
+              <div>
+                <div class="modal-header">
+                    <h4 class="modal-title">Bảng hóa đơn</h4>
+                    <button type="button" class="close" onclick="resetSelect()" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body" id="modal_body">
+
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" onclick="resetSelect()" value="Cancel">
+                   <input class="btn btn-success"  data-dismiss="modal" value="Add" onclick="saveDataUserSelect()">
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

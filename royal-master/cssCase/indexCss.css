@@ -1,0 +1,47 @@
+#notifyQuantity{
+    position: absolute;
+    left: 10px;
+    bottom: 7px;
+    font-size: 13px;
+}
+#header_messageDialog{
+    position: absolute;
+    top: calc(100% + -21%);
+    right: 1%;
+    width: 370px;
+    min-height: 300px;
+    background-color: #fff;
+    box-shadow: 0 0 4px rgb(0 0 1 / 40%);
+    border-radius: 3px;
+    animation: FadeIn linear 0.1s;
+    /* animation: growth linear 0.1s; */
+    display: none;
+}
+#header_messageDialog::after{
+    content: "";
+    position: absolute;
+    border-width: 20px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+    top: -32px;
+    right: 0;
+}
+.MessageDialogList{
+
+}
+.MessageDialogList-title{
+    padding: 10px;
+    font-size: 12px;
+    font-weight: 500;
+    font-style: italic;
+    opacity: 0.5;
+    border-bottom: 1px solid rgb(0,0,0,0.3);
+}
+.MessageDialog-itemContent{
+    height: 50px;
+    align-items: center;
+    display: flex;
+    background: antiquewhite;
+    padding-left: 10px;
+    border-bottom: 1px solid rgb(0,0,0,0.3);
+}

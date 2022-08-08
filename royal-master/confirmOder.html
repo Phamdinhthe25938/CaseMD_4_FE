@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="jsCase/oderConfirm.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins&display=swap');
+        p {
+            margin: 0
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: #e8eaf6;
+            padding: 35px;
+        }
+
+        .box-right {
+            padding: 30px 25px;
+            background-color: white;
+            border-radius: 15px
+        }
+
+        .box-left {
+            padding: 20px 20px;
+            background-color: white;
+            border-radius: 15px
+        }
+
+        .textmuted {
+            color: #7a7a7a
+        }
+
+        .bg-green {
+            background-color: #d4f8f2;
+            color: #06e67a;
+            padding: 3px 0;
+            display: inline;
+            border-radius: 25px;
+            font-size: 11px
+        }
+
+        .p-blue {
+            font-size: 14px;
+            color: #1976d2
+        }
+
+        .fas.fa-circle {
+            font-size: 12px
+        }
+
+        .p-org {
+            font-size: 14px;
+            color: #fbc02d
+        }
+
+        .h7 {
+            font-size: 15px
+        }
+
+        .h8 {
+            font-size: 12px
+        }
+
+        .h9 {
+            font-size: 10px
+        }
+
+        .bg-blue {
+            background-color: #dfe9fc9c;
+            border-radius: 5px
+        }
+
+        .form-control {
+            box-shadow: none !important
+        }
+
+        .card input::placeholder {
+            font-size: 14px
+        }
+
+        ::placeholder {
+            font-size: 14px
+        }
+
+        input.card {
+            position: relative
+        }
+
+        .far.fa-credit-card {
+            position: absolute;
+            top: 10px;
+            padding: 0 15px
+        }
+
+        .fas,
+        .far {
+            cursor: pointer
+        }
+
+        .cursor {
+            cursor: pointer
+        }
+
+        .btn.btn-primary {
+            box-shadow: none;
+            height: 40px;
+            padding: 11px
+        }
+
+        .bg.btn.btn-primary {
+            background-color: transparent;
+            border: none;
+            color: #1976d2
+        }
+
+        .bg.btn.btn-primary:hover {
+            color: #539ee9
+        }
+
+        @media(max-width:320px) {
+            .h8 {
+                font-size: 11px
+            }
+
+            .h7 {
+                font-size: 13px
+            }
+
+            ::placeholder {
+                font-size: 10px
+            }
+        }body{
+             background:#eee;
+         }
+        .panel-order .row {
+            border-bottom: 1px solid #ccc;
+        }
+        .panel-order .row:last-child {
+            border: 0px;
+        }
+        .panel-order .row .col-md-1  {
+            text-align: center;
+            padding-top: 15px;
+        }
+        .panel-order .row .col-md-1 img {
+            width: 50px;
+            max-height: 50px;
+        }
+        .panel-order .row .row {
+            border-bottom: 0;
+        }
+        .panel-order .row .col-md-11 {
+            border-left: 1px solid #ccc;
+        }
+        .panel-order .row .row .col-md-12 {
+            padding-top: 7px;
+            padding-bottom: 7px;
+        }
+        .panel-order .row .row .col-md-12:last-child {
+            font-size: 11px;
+            color: #555;
+            background: #efefef;
+        }
+        .panel-order .btn-group {
+            margin: 0px;
+            padding: 0px;
+        }
+        .panel-order .panel-body {
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+        .panel-order .panel-deading {
+            margin-bottom: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container bootdey" style="max-width: 1200px!important;">
+    <div class="panel panel-default panel-order">
+        <div class="panel-heading">
+            <strong>Order history</strong>
+            <div class="btn-group pull-right">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">Filter history <i class="fa fa-filter"></i></button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#">Approved orders</a></li>
+                        <li><a href="#">Pending orders</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-body" id="contentDisplayData">
+
+        </div>
+        <div class="panel-footer">Put here some note for example: bootdey si a gallery of free bootstrap snippets bootdeys</div>
+    </div>
+</div>
+<div class="container" style="background: none">
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content" style="width: 0;border: none!important;    position: relative;right: 190px; margin-top: 0;">
+                <div class="container" style="margin: 0;border-radius: 20px;padding: 0">
+                    <div class="row m-0" style="justify-content: space-between;background: #e8eaf6;padding: 27px 0;border-radius: 14px;">
+                        <div class="col-md-6 col-12">
+                            <div class="row">
+                                <div class="col-12 mb-4">
+                                    <div class="row box-right">
+                                        <div class="col-md-8 ps-0 ">
+                                            <p class="ps-3 textmuted fw-bold h6 mb-0">TOTAL RECIEVED</p>
+                                            <p class="h1 fw-bold d-flex">
+                                                <span class=" fas fa-dollar-sign textmuted pe-1 h6 align-text-top mt-1"></span>84,254
+                                                <span class="textmuted">.58</span> </p>
+                                            <p class="ms-3 px-2 bg-green">+10% since last month</p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p class="p-blue"> <span class="fas fa-circle pe-2"></span>Pending </p>
+                                            <p class="fw-bold mb-3"><span class="fas fa-dollar-sign pe-1"></span>1254
+                                                <span class="textmuted">.50</span> </p>
+                                            <p class="p-org"><span class="fas fa-circle pe-2"></span>On drafts</p>
+                                            <p class="fw-bold">
+                                                <span class="fas fa-dollar-sign pe-1"></span>00<span class="textmuted">.00</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 px-0 mb-4">
+                                    <div class="box-right">
+                                        <div class="d-flex pb-2">
+                                            <p class="fw-bold h7"><span class="textmuted">quickpay.to/</span>Publicnote</p>
+                                            <p class="ms-auto p-blue"><span class=" bg btn btn-primary fas fa-pencil-alt me-3"></span>
+                                                <span class=" bg btn btn-primary far fa-clone"></span> </p>
+                                        </div>
+                                        <div class="bg-blue p-2">
+                                            <P class="h8 textmuted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum
+                                                recusandae dolorem voluptas nemo, modi eos minus nesciunt.
+                                            <p class="p-blue bg btn btn-primary h8">LEARN MORE</p>
+                                            </P>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 px-0">
+                                    <div class="box-right">
+                                        <div class="d-flex mb-2">
+                                            <p class="fw-bold">Create new invoice</p>
+                                            <p class="ms-auto textmuted"><span class="fas fa-times"></span></p>
+                                        </div>
+                                        <div class="d-flex mb-2">
+                                            <p class="h7">#AL2545</p>
+                                            <p class="ms-auto bg btn btn-primary p-blue h8"><span class="far fa-clone pe-2"></span>COPY
+                                                PAYMENT LINK </p>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 mb-2">
+                                                <p class="textmuted h8">Project / Description</p> <input class="form-control" type="text" placeholder="Legal Consulting">
+                                            </div>
+                                            <div class="col-6">
+                                                <p class="textmuted h8">Issused on</p> <input class="form-control" type="text" placeholder="Oct 25, 2020">
+                                            </div>
+                                            <div class="col-6">
+                                                <p class="textmuted h8">Due on</p> <input class="form-control" type="text" placeholder="Oct 25, 2020">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-12 ps-md-5 p-0 " id="contentDetailOderConfirm">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
+<!--                <div class="modal-header">-->
+<!--                    <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+<!--                    <h4 class="modal-title">Modal Header</h4>-->
+<!--                </div>-->
