@@ -27,6 +27,7 @@
         <script src="jsCase/edit.js"></script>
         <script src="jsCase/login.js"></script>
         <script src="jsCase/oderConfirm.js"></script>
+        <link rel="stylesheet" href="cssCase/indexCss.css">
     </head>
     <body>
         <!--================Header Area =================-->
@@ -49,14 +50,30 @@
                             <li class="nav-item submenu dropdown">
                             <a  class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu</a>
                                 <ul class="dropdown-menu">
+                                    <li class="nav-item"><a class="nav-link" href="confirmOder.html">Confirm</a></li>
                                     <li class="nav-item"><a class="nav-link" href="showRoom.html">Show Room</a></li>
                                     <li class="nav-item"><a class="nav-link" href="#">Turnover </a></li>
-                                    <li class="nav-item "><a class="nav-link" onclick="logout()" >Log Out</a></li>
+                                    <li class="nav-item "><a href="login.html" style="cursor: pointer" class="nav-link" onclick="logout()" >Log Out</a></li>
                                 </ul>
                             </li>
                         </ul>
-                        <li style="display: flex;align-items: center" class="nav-item"><a  style="margin-right: 10px" class="nav-link" href="confirmOder.html">Thông báo</a><i id="fa-bell" class="fa-solid fa-bell"></i></li>
-                    </div> 
+                        <li class="header_feature-item" id="header_feature-item--Notifi" style="display:flex;align-items: center;color: black;margin-left: 15px">
+                            <a id="notification"  onclick="notificationAdmin()"  href="javascript:void(0);" class="header_feature-item--link">
+                                Thông báo
+                            </a>
+                            <i id="notify-bell-icon" style="color: #cccccc; position: relative;top: 1px;margin-left: 4px" class="fa-solid fa-bell">
+                                <i id="notifyQuantity">
+
+                                </i>
+                            </i>
+                            <div id="header_messageDialog">
+                                <h3 class="MessageDialogList-title" style="margin: 0">Product Ticket</h3>
+                                <div id="header_messageDialog--content">
+
+                                </div>
+                            </div>
+                        </li>
+                    </div>
                 </nav>
             </div>
         </header>
@@ -151,3 +168,13 @@
         <script src="js/custom.js"></script>
     </body>
 </html>
+<script>
+    function logout() {
+        console.log("hello LOgOut")
+        localStorage.removeItem("token")
+        localStorage.removeItem("nameUser");
+        localStorage.removeItem("idUser");
+        localStorage.removeItem("listSelect");
+        location.href = "login.html"
+    }
+</script>

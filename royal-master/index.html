@@ -16,12 +16,12 @@
         <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        <!-- main css -->
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/responsive.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="jsCase/index.js"></script>
         <link rel="stylesheet" href="cssCase/indexCss.css">
+        <script src="jsCase/login.js"></script>
     </head>
     <body>
         <!--================Header Area =================-->
@@ -52,7 +52,7 @@
                             <li class="nav-item"><a class="nav-link" href="elements.html">Elemests</a></li>
                             <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                             <li class="header_feature-item" id="header_feature-item--Notifi" style="display:flex;align-items: center;color: black">
-                                <a id="notify" href="javascript:void(0);" class="header_feature-item--link">
+                                <a id="notification"  onclick="notification()" href="javascript:void(0);" class="header_feature-item--link">
                                     Thông báo
                                 </a>
                                 <i id="notify-bell-icon"  style="color: #cccccc; position: relative;top: 1px;margin-left: 4px" class="fa-solid fa-bell">
@@ -67,6 +67,7 @@
                                     </div>
                                 </div>
                             </li>
+                            <li class="nav-item"><a style="cursor: pointer;margin-left: 10px" class="nav-link" href="login.html" onclick="logout()">LogOut</a></li>
                         </ul>
                     </div> 
                 </nav>

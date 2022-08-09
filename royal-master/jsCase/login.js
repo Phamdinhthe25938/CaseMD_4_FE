@@ -24,7 +24,12 @@ function login() {
             localStorage.setItem("token", data.token);
             localStorage.setItem("idUser",data.id);
             localStorage.setItem("nameUser",data.userName);
-            location.href = "index.html"
+            if(data.userName==="admin"){
+                location.href="showAdmin.html"
+            }
+            else {
+                location.href="index.html";
+            }
         },
         error: function (err) {
             location.href = "login.html"
@@ -152,22 +157,13 @@ function register(event){
                 location.href = "login.html"
                 console.log("okoko")
                 console.log("okoko")
-                console.log("okoko")
+                console.log("okoko");
             },
             error: function (err) {
                 console.log(err)
             }
         })
     }
-}
-localStorage.removeItem("token");
-localStorage.removeItem("idUser");
-localStorage.removeItem("nameUser");
-
-function logout() {
-    window.localStorage.setItem("token","")
-    window.localStorage.setItem("userName","")
-    window.location.href = "login.html"
 }
 function forgotpass(event){
     event.preventDefault();

@@ -51,7 +51,7 @@ function showDataOderConfirm(data){
                     <div class="row">
                         <div class="col-md-12">
                             <div class="pull-right"  onclick="getDataDetailOderConfirm(${data[i].appUser.idUser},${str1})" ><label class="label label-danger" data-toggle="modal" data-target="#myModal" style="cursor: pointer;padding: 6px"> Chi tiết</label></div>
-                            <span><strong style="color: red; margin-right: 12px;">${data[i].appUser.nameUser}</strong></span> <span class="label label-info">group name</span>
+                            <span><strong class="title-name_oder_confirm" style="color: red; margin-right: 12px;">${data[i].appUser.nameUser}</strong></span> <span class="label label-info">group name</span>
                             <br>
                             <div>
                               <span style="margin-right: 22px;color: darkblue;">Quantity : ${data[i].quantityOder}</span> 
@@ -87,19 +87,18 @@ function statusOderConfirm(data){
     }
 }
 function getDataDetailOderConfirm(id,time){
-    let newTime = time.replace("T"," ");
-    console.log(newTime);
     $.ajax({
         type: "GET",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        url: "http://localhost:8080/admin/detailListOderConfirm/"+id+"/"+newTime,
+        url: "http://localhost:8080/admin/detailListOderConfirm/"+id+"/"+time,
         success: function (data) {
             console.log(data);
-            showDataDetailOderConfirm(data);
+            showDataDetailOderConfirm(data,time);
             statusOderConfirm(data);
+            totalMoneyOfUser(id);
         },
         error: function (err) {
             console.log(err)
@@ -107,13 +106,13 @@ function getDataDetailOderConfirm(id,time){
         }
     })
 }
-function showDataDetailOderConfirm(data){
+function showDataDetailOderConfirm(data,time){
     console.log(data.length)
     let totalMoney =0;
     for (let i=0;i<data.length;i++){
         totalMoney+=  data[i].quantity *  data[i].drink.priceDrink;
     }
-    let timeSelect  = "'".concat(data[0].timeSelect,"'");
+    let newTime = "'".concat(time,"'")
     let str=""
     str+=`<div class="box-left">
                                 <p class="textmuted h8">Khách hàng</p>
@@ -182,7 +181,7 @@ function showDataDetailOderConfirm(data){
                                             <p class="p-blue h8 fw-bold mb-3" style="margin-left: 15px;margin-top: 10px;">MORE PAYMENT METHODS</p>
                                         </div>
                                        <div id="btnConfirmOder">
-                                           <div class="btn btn-primary d-block h8" data-dismiss="modal" onclick="contentNotificationOderConfirm(${data[0].appUser.idUser},${timeSelect})"> Xác nhận số tiền <span>  </span> 
+                                           <div class="btn btn-primary d-block h8" data-dismiss="modal" onclick="contentNotificationOderConfirm(${data[0].appUser.idUser},${newTime})"> Xác nhận số tiền <span>  </span> 
                                             <span class=" ms-2"></span>${totalMoney}<span class=""></span>
                                            </div>
                                       </div>
@@ -194,7 +193,6 @@ function showDataDetailOderConfirm(data){
 }
 function contentNotificationOderConfirm(idUser,timeSelect){
     let contentNotification= document.getElementById("contentNotification").value;
-    let newTimeSelect = timeSelect.replace("T"," ")
     let appUserConfirm = {
         appUser:{
             idUser:idUser
@@ -210,11 +208,34 @@ function contentNotificationOderConfirm(idUser,timeSelect){
         beforeSend: function (xhr) {
             xhr.setRequestHeader ("Authorization", "Bearer " + token);
         },
-        url: "http://localhost:8080/admin/confirmOder/"+newTimeSelect,
+        url: "http://localhost:8080/admin/confirmOder/"+timeSelect,
         data: JSON.stringify(appUserConfirm),
         //xử lý khi thành công
         success: function (data) {
             getDataOderConfirm();
+        },
+        error: function (err) {
+            console.log(err)
+        }
+    })
+}
+function totalMoneyOfUser(id){
+    $.ajax({
+        type: "GET",
+        headers: {
+            'Accept': 'application/json'
+        },
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader ("Authorization", "Bearer " + token);
+        },
+        url: "http://localhost:8080/admin/listUserSelectById/"+id,
+        success: function (data) {
+            let total=0;
+           for(let i=0;i<data.length;i++){
+               total+= data[i].quantity * data[i].drink.priceDrink;
+           }
+           document.getElementById("totalMoney").innerHTML=`${total}`;
+           document.getElementById("totalMoneySub").innerHTML=`${total}`;
         },
         error: function (err) {
             console.log(err)

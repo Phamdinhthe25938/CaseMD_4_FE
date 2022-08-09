@@ -8,6 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="jsCase/oderConfirm.js"></script>
     <style>
@@ -15,7 +16,37 @@
         p {
             margin: 0
         }
-
+        @-webkit-keyframes my {
+            0% { color: #F8CD0A; }
+            50% { color: #fff;  }
+            100% { color: #F8CD0A;  }
+        }
+        @-moz-keyframes my {
+            0% { color: #F8CD0A;  }
+            50% { color: #fff;  }
+            100% { color: #F8CD0A;  }
+        }
+        @-o-keyframes my {
+            0% { color: #F8CD0A; }
+            50% { color: #fff; }
+            100% { color: #F8CD0A;  }
+        }
+        @keyframes my {
+            0% { color: #F8CD0A;  }
+            50% { color: #fff;  }
+            100% { color: #F8CD0A;  }
+        }
+        .title-name_oder_confirm {
+            background: red;
+            border-radius: 4px;
+            padding: 2px 12px;
+            font-size:15px;
+            font-weight:bold;
+            -webkit-animation: my 700ms infinite;
+            -moz-animation: my 700ms infinite;
+            -o-animation: my 700ms infinite;
+            animation: my 700ms infinite;
+        }
         .container {
             max-width: 900px;
             margin: 30px auto;
@@ -220,14 +251,15 @@
                                         <div class="col-md-8 ps-0 ">
                                             <p class="ps-3 textmuted fw-bold h6 mb-0">TOTAL RECIEVED</p>
                                             <p class="h1 fw-bold d-flex">
-                                                <span class=" fas fa-dollar-sign textmuted pe-1 h6 align-text-top mt-1"></span>84,254
-                                                <span class="textmuted">.58</span> </p>
+                                                <span class=" fas fa-dollar-sign textmuted pe-1 h6 align-text-top mt-1"></span>
+                                                <span class="textmuted" id="totalMoney"></span>
+                                                 </p>
                                             <p class="ms-3 px-2 bg-green">+10% since last month</p>
                                         </div>
                                         <div class="col-md-4">
                                             <p class="p-blue"> <span class="fas fa-circle pe-2"></span>Pending </p>
-                                            <p class="fw-bold mb-3"><span class="fas fa-dollar-sign pe-1"></span>1254
-                                                <span class="textmuted">.50</span> </p>
+                                            <p class="fw-bold mb-3"><span class="fas fa-dollar-sign pe-1">
+                                            <span class="textmuted" id="totalMoneySub"></span>
                                             <p class="p-org"><span class="fas fa-circle pe-2"></span>On drafts</p>
                                             <p class="fw-bold">
                                                 <span class="fas fa-dollar-sign pe-1"></span>00<span class="textmuted">.00</span></p>

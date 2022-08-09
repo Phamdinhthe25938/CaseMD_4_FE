@@ -1,6 +1,5 @@
 let token = localStorage.getItem("token");
 let idUser = localStorage.getItem("idUser");
-console.log("hello")
 getDataDrink();
 function getDataDrink(){
     $.ajax({
@@ -84,9 +83,6 @@ function localSelect (){
 }
 function displayDataLocalSelect(){
     let dataLocalSelect = localStorage.getItem("listSelect");
-    console.log(dataLocalSelect);
-    console.log(dataLocalSelect[0]);
-    console.log(dataLocalSelect[1]);
     for (let i=0;i<quantitySelect.length;i++){
               if(i===0){
                 quantitySelect[i].innerHTML = dataLocalSelect[i];
@@ -106,7 +102,6 @@ function quantityLocalQuantityDrinkExist(data){
 function selectItemDrinksAdd(i,q){
     let str="";
     str+=`<span class="label label-default" style="background: #ccc;padding: 7px;color:red">UnActive</span>`
-    // alert(q)
     let kq = Number(quantitySelect[i].innerText);
     kq++;
     quantitySelect[i].innerText=kq;

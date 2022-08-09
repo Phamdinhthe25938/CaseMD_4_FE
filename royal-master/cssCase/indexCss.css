@@ -6,8 +6,8 @@
 }
 #header_messageDialog{
     position: absolute;
-    top: calc(100% + -21%);
-    right: 1%;
+    top: calc(100% + -18%);
+    right: 6%;
     width: 370px;
     min-height: 300px;
     background-color: #fff;
